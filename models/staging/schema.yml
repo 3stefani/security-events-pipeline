@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_security_events
+    columns:
+      - name: event_id
+        tests:
+          - unique
+          - not_null
+      - name: source_ip
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['success', 'failed', 'detected']
